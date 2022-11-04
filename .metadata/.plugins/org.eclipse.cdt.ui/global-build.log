@@ -1,0 +1,7 @@
+22:34:45 **** Incremental Build of configuration Debug for project mid_term ****
+make -j8 all 
+arm-none-eabi-size   mid_term.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7280	     40	   1664	   8984	   2318	mid_term.elf
+Finished building: default.size.stdout
+ 
