@@ -1,4 +1,11 @@
 button.c:35:6:subKeyProcess1	4	static
-button.c:46:5:isButtonPressed1	4	static
-button.c:131:6:double_click	8	static
-button.c:157:5:is_double	4	static
+button.c:38:6:subKeyProcess2	4	static
+button.c:41:6:subKeyProcess3	4	static
+button.c:45:5:isButtonPressed1	4	static
+button.c:53:5:isButtonPressed2	4	static
+button.c:61:5:isButtonPressed3	4	static
+button.c:69:5:isButtonHold2	4	static
+button.c:77:5:isButtonHold3	4	static
+button.c:85:6:getKeyInput2	8	static
+button.c:113:6:getKeyInput1	8	static
+button.c:133:6:getKeyInput3	8	static

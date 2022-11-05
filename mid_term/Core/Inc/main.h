@@ -34,8 +34,8 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include "software_timer.h"
 #include "button.h"
-#include "fsm_automatic.h"
 #include "fsm_manual.h"
+#include "global.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -61,10 +61,28 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define button_Pin GPIO_PIN_13
-#define button_GPIO_Port GPIOC
 #define LED_Pin GPIO_PIN_5
 #define LED_GPIO_Port GPIOA
+#define LED7_0_Pin GPIO_PIN_0
+#define LED7_0_GPIO_Port GPIOB
+#define LED7_1_Pin GPIO_PIN_1
+#define LED7_1_GPIO_Port GPIOB
+#define LED7_2_Pin GPIO_PIN_2
+#define LED7_2_GPIO_Port GPIOB
+#define RESET_Pin GPIO_PIN_13
+#define RESET_GPIO_Port GPIOB
+#define INC_Pin GPIO_PIN_14
+#define INC_GPIO_Port GPIOB
+#define DEC_Pin GPIO_PIN_15
+#define DEC_GPIO_Port GPIOB
+#define LED7_3_Pin GPIO_PIN_3
+#define LED7_3_GPIO_Port GPIOB
+#define LED7_4_Pin GPIO_PIN_4
+#define LED7_4_GPIO_Port GPIOB
+#define LED7_5_Pin GPIO_PIN_5
+#define LED7_5_GPIO_Port GPIOB
+#define LED7_6_Pin GPIO_PIN_6
+#define LED7_6_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

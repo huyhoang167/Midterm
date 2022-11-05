@@ -1,0 +1,255 @@
+/*
+ * fsm_manual.c
+ *
+ *  Created on: Nov 4, 2022
+ *      Author: Hoang
+ */
+#include "fsm_manual.h"
+
+int  index_led1 = 0;
+int led_buffer1[10] = {0,1,2,3,4,5,6,7,8,9};
+/*
+void updateClockBuffer1(int second1, int second2){
+	  int a = second1%10;
+	  second1 = second1/10;
+	  led_buffer1[0]= second1;
+	  led_buffer1[1] = a;
+	  int b = second2%10;
+	  second2 = second2/10;
+	  led_buffer1[2]= second2;
+	  led_buffer1[3] = b;
+}
+*/
+void Display7SEG1(int count){
+	switch (count) {
+		case 0:
+			HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+			HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+			HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+			HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+			HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 0);
+			HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+			HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 1);
+			break;
+		case 1:
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 1);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 1);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 1);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 1);
+				break;
+		case 2:
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 1);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 0);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 1);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
+				break;
+		case 3:
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 1);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
+				break;
+		case 4:
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 1);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 1);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
+				break;
+		case 5:
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 1);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
+				break;
+		case 6:
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 1);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 0);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
+				break;
+		case 7:
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 1);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 1);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 1);
+				break;
+		case 8:
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 0);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
+				break;
+		case 9:
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
+				break;
+		default:
+			break;
+	}
+}
+/*
+void update7SEG1 (int index) {
+   switch (index) {
+     case 0:
+       // Display the first 7 SEG with led_buffer [0]
+  	  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,0);
+  	  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,1);
+	  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin,1);
+	  HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin,1);
+       Display7SEG1(led_buffer1[index]);
+       break ;
+     case 1:
+       // Display the second 7 SEG with led_buffer [1]
+       HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,1);
+       HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,0);
+       HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin,1);
+       HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin,1);
+       Display7SEG1(led_buffer1[index]);
+       break ;
+     case 2:
+       // Display the third 7 SEG with led_buffer [2]
+    	 HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,1);
+    	 HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,1);
+    	 HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin,0);
+    	 HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin,1);
+       Display7SEG1(led_buffer1[index]);
+       break ;
+     case 3:
+       // Display the forth 7 SEG with led_buffer [3]
+    	 HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,1);
+    	  	 HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,1);
+    		 HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin,1);
+    		 HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin,0);
+       index_led1 = 0;
+       Display7SEG1(led_buffer1[index]);
+       break ;
+     default :
+       break ;
+   }
+}
+*/
+void fsm_simple_buttons_run(){
+	switch (status) {
+		case INIT1:
+			Display7SEG1(index_led1);
+			if (isButtonPressed1() == 1){
+				status = RESET_MODE;
+			}
+			if (isButtonPressed2() == 1){
+				index_led1++;
+				if (index_led1 > 9){
+					index_led1 = 0;
+				}
+				Display7SEG1(index_led1);
+				status = INC;
+			}
+			if (isButtonPressed3() == 1){
+		    	index_led1--;
+		        if (index_led1 < 0){
+		        	index_led1 = 9;
+		        }
+			    Display7SEG1(index_led1);
+				status = DC;
+			}
+		    break;
+		case RESET_MODE:
+		    index_led1 = 0;
+		    Display7SEG1(index_led1);
+		    if (isButtonPressed2() == 1){
+		    	index_led1++;
+		        if (index_led1 > 9){
+		        	index_led1 = 0;
+		        }
+			    Display7SEG1(index_led1);
+		    	status = INC;
+		    }
+			if (isButtonPressed3() == 1){
+		    	index_led1--;
+		        if (index_led1 < 0){
+		        	index_led1 = 9;
+		        }
+			    Display7SEG1(index_led1);
+				status = DC;
+			}
+			break;
+		case INC:
+			if (isButtonHold2() == 1){
+							index_led1++;
+							if (index_led1 > 9){
+								index_led1 = 0;
+						     }
+							Display7SEG1(index_led1);
+						}
+		    if (isButtonPressed2() == 1){
+		    	index_led1++;
+		        if (index_led1 > 9){
+		        	index_led1 = 0;
+		        }
+			    Display7SEG1(index_led1);
+		    }
+			if (isButtonPressed1() == 1){
+				status = RESET_MODE;
+			}
+			if (isButtonPressed3() == 1){
+		    	index_led1--;
+		        if (index_led1 < 0){
+		        	index_led1 = 9;
+		        }
+			    Display7SEG1(index_led1);
+				status = DC;
+			}
+		    break;
+		case DC:
+		    if (isButtonPressed3() == 1){
+		    	index_led1--;
+		        if (index_led1 < 0){
+		        	index_led1 = 9;
+		        }
+			    Display7SEG1(index_led1);
+		    }
+			if (isButtonPressed1() == 1){
+				status = RESET_MODE;
+			}
+			if (isButtonPressed2() == 1){
+		    	index_led1++;
+		        if (index_led1 > 9){
+		        	index_led1 = 0;
+		        }
+			    Display7SEG1(index_led1);
+				status = INC;
+			}
+			break;
+		default:
+			break;
+	}
+}
+

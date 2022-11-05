@@ -8,17 +8,14 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
-#define INIT1  0
-#define AUTO_RED 1
-#define AUTO_YELLOW 2
-#define AUTO_GREEN 3
+#define INIT  0
+#define RESET_MODE  1
+#define INC 2
+#define DEC 3
+#define WAITING 4
 
-#define INIT2 11
-#define NORMAL_MODE 12
-#define RED_MODE 13
-#define YELLOW_MODE 14
-#define GREEN_MODE 15
-
+extern int index_led1;
+extern int prev_index;
 extern int status;
 
 

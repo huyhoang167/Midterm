@@ -5,174 +5,241 @@
  *      Author: Hoang
  */
 #include "fsm_manual.h"
-/*
-int count1 = 0;
-int  index_led1 = 0;
-int led_buffer1[4];
-void updateClockBuffer1(int second1, int second2){
-	  int a = second1%10;
-	  second1 = second1/10;
-	  led_buffer1[0]= second1;
-	  led_buffer1[1] = a;
-	  int b = second2%10;
-	  second2 = second2/10;
-	  led_buffer1[2]= second2;
-	  led_buffer1[3] = b;
-}
+
+// Hien thi counter len LED 7 doan
 void Display7SEG1(int count){
 	switch (count) {
 		case 0:
-			HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 0);
-			HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 0);
-			HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 0);
-			HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 0);
-			HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 0);
-			HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 0);
-			HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 1);
+			HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+			HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+			HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+			HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+			HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 0);
+			HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+			HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 1);
 			break;
 		case 1:
-				HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 1);
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 1);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 1);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 1);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 1);
 				break;
 		case 2:
-				HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 0);
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 1);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 0);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 1);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
 				break;
 		case 3:
-				HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 0);
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 1);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
 				break;
 		case 4:
-				HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 0);
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 1);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 1);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
 				break;
 		case 5:
-				HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 0);
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 1);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
 				break;
 		case 6:
-				HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 0);
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 1);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 0);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
 				break;
 		case 7:
-				HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 1);
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 1);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 1);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 1);
 				break;
 		case 8:
-				HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 0);
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 0);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
 				break;
 		case 9:
-				HAL_GPIO_WritePin(SEG1_a_GPIO_Port, SEG1_a_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_b_GPIO_Port, SEG1_b_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_c_GPIO_Port, SEG1_c_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_d_GPIO_Port, SEG1_d_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_e_GPIO_Port, SEG1_e_Pin, 1);
-				HAL_GPIO_WritePin(SEG1_f_GPIO_Port, SEG1_f_Pin, 0);
-				HAL_GPIO_WritePin(SEG1_g_GPIO_Port, SEG1_g_Pin, 0);
+				HAL_GPIO_WritePin(LED7_0_GPIO_Port, LED7_0_Pin, 0);
+				HAL_GPIO_WritePin(LED7_1_GPIO_Port, LED7_1_Pin, 0);
+				HAL_GPIO_WritePin(LED7_2_GPIO_Port, LED7_2_Pin, 0);
+				HAL_GPIO_WritePin(LED7_3_GPIO_Port, LED7_3_Pin, 0);
+				HAL_GPIO_WritePin(LED7_4_GPIO_Port, LED7_4_Pin, 1);
+				HAL_GPIO_WritePin(LED7_5_GPIO_Port, LED7_5_Pin, 0);
+				HAL_GPIO_WritePin(LED7_6_GPIO_Port, LED7_6_Pin, 0);
 				break;
 		default:
 			break;
 	}
 }
-void update7SEG1 (int index) {
-   switch (index) {
-     case 0:
-       // Display the first 7 SEG with led_buffer [0]
-  	  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,0);
-  	  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,1);
-	  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin,1);
-	  HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin,1);
-       Display7SEG1(led_buffer1[index]);
-       break ;
-     case 1:
-       // Display the second 7 SEG with led_buffer [1]
-       HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,1);
-       HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,0);
-       HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin,1);
-       HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin,1);
-       Display7SEG1(led_buffer1[index]);
-       break ;
-     case 2:
-       // Display the third 7 SEG with led_buffer [2]
-    	 HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,1);
-    	 HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,1);
-    	 HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin,0);
-    	 HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin,1);
-       Display7SEG1(led_buffer1[index]);
-       break ;
-     case 3:
-       // Display the forth 7 SEG with led_buffer [3]
-    	 HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin,1);
-    	  	 HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin,1);
-    		 HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin,1);
-    		 HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin,0);
-       index_led1 = 0;
-       Display7SEG1(led_buffer1[index]);
-       break ;
-     default :
-       break ;
-   }
+// Kiem tra nhan de cho nut INC va thuc hien cong counter
+void press_hold_INC(){
+	if (isButtonHold2() == 1){
+		index_led1++;
+		if (index_led1 > 9){
+			index_led1 = 0;
+		}
+		Display7SEG1(index_led1);
+	}
 }
-void fsm_manual_run(){
+// Kiem tra nhan de cho nut DEC va thuc hien tru counter
+void press_hold_DEC(){
+	if (isButtonHold3() == 1){
+		index_led1--;
+		if (index_led1 < 0){
+			index_led1 = 9;
+		 }
+		Display7SEG1(index_led1);
+	}
+}
+// Kiem tra de chuyen sang trang thai waiting
+void check_waiting(){
+	if (isButtonPressed1() == 0 && isButtonPressed2() == 0 && isButtonPressed3() == 0){
+		setTimer1(1000);
+		prev_index = index_led1;
+		status = WAITING;
+	}
+}
+// Tang counter
+void increase_count(){
+	index_led1++;
+	if (index_led1 > 9){
+		index_led1 = 0;
+	}
+	Display7SEG1(index_led1);
+}
+// Giam counter
+void decrease_count(){
+	index_led1--;
+    if (index_led1 < 0){
+    	index_led1 = 9;
+    }
+    Display7SEG1(index_led1);
+}
+// Giam count o trang thai khong nhan
+void decrease_count_waiting(){
+	index_led1--;
+    if (index_led1 < 0){
+    	index_led1 = 0;
+    }
+    Display7SEG1(index_led1);
+}
+// May trang thai
+void fsm_simple_buttons_run(){
 	switch (status) {
-		case INIT1:
+		case INIT:
+			status = RESET_MODE;
 		    break;
-		case NORMAL_MODE:
-			    status = INIT2;
+		case RESET_MODE:
+		    index_led1 = 0; // reset count = 0
+		    Display7SEG1(index_led1);
+		    if (isButtonPressed2() == 1){
+		    	// Khi nut INC duoc nhan
+		    	increase_count();
+		    	status = INC;
+				setTimer1(1000);
+		    }
+			if (isButtonPressed3() == 1){
+				// Khi nut DEC duoc nhan
+		    	decrease_count();
+				status = DEC;
+				setTimer1(1000); // SetTimer dem thoi gian 10s ve ban dau
+			}
 			break;
-		case RED_MODE:
-			status = YELLOW_MODE;
+		case INC:
+			if (timer1_flag == 1){ // Chuyen sang trang thai cho
+				status = WAITING;
+				prev_index = index_led1;
+			}
+			press_hold_INC(); // Nhan de nut INC
+		    if (isButtonPressed2() == 1){
+		    	increase_count();
+				setTimer1(1000);
+		    }
+			if (isButtonPressed1() == 1){
+				status = RESET_MODE;
+				setTimer1(1000);
+			}
+			if (isButtonPressed3() == 1){
+		    	decrease_count();
+				status = DEC;
+				setTimer1(1000);
+			}
+
 		    break;
-		case YELLOW_MODE:
-			status = GREEN_MODE;
+		case DEC:
+			if (timer1_flag == 1){
+				status = WAITING;
+				prev_index = index_led1;
+			}
+			press_hold_DEC(); // Nhan de nut DEC
+		    if (isButtonPressed3() == 1){
+		    	decrease_count();
+				setTimer1(1000);
+		    }
+			if (isButtonPressed1() == 1){
+				status = RESET_MODE;
+				setTimer1(1000);
+			}
+			if (isButtonPressed2() == 1){
+		    	increase_count();
+				status = INC;
+				setTimer1(1000);
+			}
+
 			break;
-		case GREEN_MODE:
-			status = NORMAL_MODE;
+		case WAITING:
+			 if (timer1_flag == 1){
+				decrease_count_waiting(); //Giam counter
+				setTimer1(100); // Set thoi gian 1s
+			 }
+			 // Khi INC hoac DEC duoc nhan thi chuyen sang status = INC
+			if (isButtonPressed2() == 1){
+				index_led1 = prev_index;
+				Display7SEG1(index_led1);
+				status = INC;
+				setTimer1(1000);
+			}
+			if (isButtonPressed3() == 1){
+				index_led1 = prev_index;
+				Display7SEG1(index_led1);
+				status = INC;
+				setTimer1(1000);
+			}
 			break;
 		default:
 			break;
 	}
 }
 
-*/
